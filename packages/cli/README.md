@@ -1,6 +1,6 @@
-# Create Modern Fullstack 🚀
+# TanStack Hono Starter 🚀
 
-A powerful CLI for creating modern fullstack applications with the latest technologies.
+A powerful CLI for creating modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI.
 
 ## Features
 
@@ -90,7 +90,7 @@ We welcome contributions! Please see our [Contributing Guide](https://github.com
 
 ## License
 
-MIT © [Modern Fullstack CLI](https://github.com/create-modern-fullstack/cli)
+MIT © [TanStack Hono Starter](https://github.com/Kroro1208/tanstack-hono-starter)
 
 ---
 
