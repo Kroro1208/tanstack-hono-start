@@ -1,12 +1,19 @@
-# 🚀 Modern Fullstack CLI
+# 🚀 TanStack Hono Starter
 
-[![npm version](https://badge.fury.io/js/create-modern-fullstack.svg)](https://www.npmjs.com/package/create-modern-fullstack)
+[![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
+[![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Hono](https://img.shields.io/badge/Hono-FF6B35?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
 [![TanStack Router](https://img.shields.io/badge/TanStack_Router-FF4154?style=for-the-badge&logo=react-router&logoColor=white)](https://tanstack.com/router)
 
-> ⚡ The fastest way to bootstrap modern fullstack applications with TanStack Router and Hono
+> ⚡ The fastest way to bootstrap modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI
+
+## 🎬 Quick Demo
+
+![CLI Demo](https://raw.githubusercontent.com/Kroro1208/tanstack-hono-starter/main/demo.gif)
+
+*Create a modern fullstack app in seconds with React 19, TanStack Router, Hono OpenAPI, and AI integration!*
 
 ## ✨ Features
 
@@ -21,28 +28,49 @@
 ## 🚀 Quick Start
 
 ```bash
-# Create a new project
-npx create-modern-fullstack my-awesome-app
+# Create a new project (recommended)
+npx create-tanstack-hono-start@latest my-awesome-app
 
-# Or with options
-npx create-modern-fullstack my-app --template basic --yes
+# Or with npm
+npm create tanstack-hono-start@latest my-awesome-app
+
+# Or with yarn
+yarn create tanstack-hono-start@latest my-awesome-app
 ```
+
+## 🎯 What's New in 2025
+
+- 🆕 **React 19** - Latest React with improved performance and features
+- 🔗 **Hono OpenAPI** - Auto-generated API documentation with Swagger UI
+- 🤖 **Mastra AI** - Built-in AI assistant capabilities  
+- 🔒 **End-to-End Type Safety** - Shared Zod schemas between frontend/backend
+- ⚡ **React Query** - Advanced server state management
+- 🎨 **Modern UI** - Beautiful Tailwind components out of the box
 
 ## 🎯 What You Get
 
-### Frontend (React + TanStack Router)
-- ⚛️ React 18 with concurrent features
-- 🛣️ Type-safe routing with TanStack Router  
-- ⚡ Vite for lightning-fast development
-- 🎨 Tailwind CSS for beautiful UIs
-- 🧪 Vitest for testing
+### Frontend (React 19 + TanStack Router)
+- ⚛️ **React 19** - Latest features and performance improvements
+- 🛣️ **TanStack Router** - Type-safe routing with file-based structure
+- ⚡ **Vite** - Lightning-fast development and build
+- 🎨 **Tailwind CSS** - Beautiful, responsive UI components
+- 🔄 **React Query** - Advanced data fetching and caching
+- 🧪 **Vitest** - Modern testing framework
 
-### Backend (Hono API)
-- 🔥 Hono for ultrafast API development
-- 🛡️ Built-in CORS and security
-- 📝 TypeScript throughout
-- 🧪 API testing setup
-- 🔍 Request logging and error handling
+### Backend (Hono + OpenAPI)
+- 🔥 **Hono** - Ultra-fast web framework
+- 📚 **OpenAPI/Swagger** - Auto-generated API documentation
+- 🛡️ **Zod Schemas** - Runtime validation and type safety
+- 🤖 **Mastra AI** - Built-in AI assistant endpoints
+- 🔍 **Logging & Error Handling** - Production-ready setup
+- 📝 **Full TypeScript** - End-to-end type safety
+
+### Generated API Endpoints
+- `GET /api/users` - User management with type validation
+- `POST /api/users` - Create users with Zod schema validation  
+- `POST /api/ai/chat` - AI assistant with Mastra integration
+- `GET /ui` - Interactive Swagger UI documentation
+- `GET /doc` - OpenAPI JSON specification
 
 ## 🛠️ Available Templates
 
