@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import fs from "fs-extra";
 import path from "path";
 import Handlebars from "handlebars";
-import { getTemplateData, getTemplates } from "./templates";
+import { getTemplateData, getTemplates, getTemplatePath } from "./templates";
 
 export interface ProjectOptions {
   template?: string;
@@ -108,7 +108,7 @@ async function scaffoldTemplate(
   templateData: any,
   variables: Record<string, any>
 ) {
-  const templatePath = path.join(__dirname, "../../../templates", templateData.name);
+  const templatePath = getTemplatePath(templateData.name);
   
   await copyAndProcessTemplate(templatePath, projectPath, variables);
 }

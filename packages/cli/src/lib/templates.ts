@@ -37,6 +37,12 @@ export function getTemplateData(templateName: string): Template {
 }
 
 export async function validateTemplate(templateName: string): Promise<boolean> {
-  const templatePath = path.join(__dirname, "../../templates", templateName);
+  const templatePath = getTemplatePath(templateName);
   return fs.pathExists(templatePath);
+}
+
+export function getTemplatePath(templateName: string): string {
+  // For npm published package, templates are at package root level
+  // __dirname points to dist/lib, so we go up to package root
+  return path.join(__dirname, "../../templates", templateName);
 }

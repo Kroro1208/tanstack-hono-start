@@ -4,14 +4,20 @@ import { swaggerUI } from '@hono/swagger-ui';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
-import { Mastra } from '@mastra/core';
+import { Mastra, Agent } from '@mastra/core';
 
 const app = new OpenAPIHono();
 
 // Initialize Mastra AI agent
-const mastra = new Mastra({
+const mastra = new Mastra();
+
+const assistant = new Agent({
   name: '{{projectName}}-assistant',
   instructions: 'You are a helpful AI assistant for the {{projectName}} application.',
+  model: {
+    provider: 'OPEN_AI',
+    name: 'gpt-4o-mini',
+  },
 });
 
 // Define schemas for type safety
@@ -131,14 +137,9 @@ app.openapi(aiChatRoute, async (c) => {
   
   try {
     // Use Mastra AI agent to generate response
-    const response = await mastra.generate({
-      messages: [
-        {
-          role: 'user',
-          content: context ? `Context: ${context}\nMessage: ${message}` : message,
-        },
-      ],
-    });
+    const response = await assistant.generate(
+      context ? `Context: ${context}\nMessage: ${message}` : message
+    );
     
     return c.json({
       response: response.text || 'I apologize, but I could not generate a response.',

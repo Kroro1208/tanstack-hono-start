@@ -40,10 +40,24 @@
    ```bash
    npm run dev
    ```
+   This will start both:
+   - 🌐 Frontend (React): http://localhost:3000
+   - 🔗 API (Hono): http://localhost:8000
+   - 📚 API Docs: http://localhost:8000/ui
 
-3. **Open your browser**
+3. **Start individual services (optional)**
+   ```bash
+   # Start only the API server
+   cd apps/api && npm run dev
+   
+   # Start only the frontend (in another terminal)  
+   cd apps/web && npm run dev
+   ```
+
+4. **Open your browser**
    - Frontend: http://localhost:3000
    - API: http://localhost:8000
+   - Swagger UI: http://localhost:8000/ui
 
 ## 📜 Available Scripts
 
