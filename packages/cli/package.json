@@ -1,10 +1,10 @@
 {
-  "name": "create-modern-fullstack",
+  "name": "create-tanstack-hono-start",
   "version": "1.0.0",
   "description": "🚀 CLI for creating modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI",
   "main": "dist/index.js",
   "bin": {
-    "create-modern-fullstack": "./dist/index.js"
+    "create-tanstack-hono-start": "./dist/index.js"
   },
   "keywords": [
     "cli",
