@@ -20,10 +20,10 @@ A powerful CLI for creating modern fullstack applications with React 19, TanStac
 npx create-tanstack-hono-starter my-awesome-app
 
 # Or with npm
-npm create tanstack-hono-start my-awesome-app
+npm create tanstack-hono-starter my-awesome-app
 
 # Or with yarn
-yarn create tanstack-hono-start my-awesome-app
+yarn create tanstack-hono-starter my-awesome-app
 ```
 
 ## What's Included
