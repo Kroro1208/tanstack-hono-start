@@ -13,12 +13,12 @@
 
 ![CLI Demo](https://raw.githubusercontent.com/Kroro1208/tanstack-hono-starter/main/demo.gif)
 
-*Create a modern fullstack app in seconds with React 19, TanStack Router, Hono OpenAPI, and AI integration!*
+_Create a modern fullstack app in seconds with React 19, TanStack Router, Hono OpenAPI, and AI integration!_
 
 ## ✨ Features
 
 - 🎯 **Type-Safe**: End-to-end TypeScript from frontend to backend
-- ⚡ **Lightning Fast**: Powered by Vite and Hono for optimal performance  
+- ⚡ **Lightning Fast**: Powered by Vite and Hono for optimal performance
 - 🧪 **Test Ready**: Vitest setup with modern testing practices
 - 🎨 **Beautiful**: Tailwind CSS with responsive design
 - 🔧 **Developer Experience**: Hot reloading, ESLint, Prettier
@@ -42,7 +42,7 @@ yarn create tanstack-hono-start@latest my-awesome-app
 
 - 🆕 **React 19** - Latest React with improved performance and features
 - 🔗 **Hono OpenAPI** - Auto-generated API documentation with Swagger UI
-- 🤖 **Mastra AI** - Built-in AI assistant capabilities  
+- 🤖 **Mastra AI** - Built-in AI assistant capabilities
 - 🔒 **End-to-End Type Safety** - Shared Zod schemas between frontend/backend
 - ⚡ **React Query** - Advanced server state management
 - 🎨 **Modern UI** - Beautiful Tailwind components out of the box
@@ -50,6 +50,7 @@ yarn create tanstack-hono-start@latest my-awesome-app
 ## 🎯 What You Get
 
 ### Frontend (React 19 + TanStack Router)
+
 - ⚛️ **React 19** - Latest features and performance improvements
 - 🛣️ **TanStack Router** - Type-safe routing with file-based structure
 - ⚡ **Vite** - Lightning-fast development and build
@@ -58,6 +59,7 @@ yarn create tanstack-hono-start@latest my-awesome-app
 - 🧪 **Vitest** - Modern testing framework
 
 ### Backend (Hono + OpenAPI)
+
 - 🔥 **Hono** - Ultra-fast web framework
 - 📚 **OpenAPI/Swagger** - Auto-generated API documentation
 - 🛡️ **Zod Schemas** - Runtime validation and type safety
@@ -66,8 +68,9 @@ yarn create tanstack-hono-start@latest my-awesome-app
 - 📝 **Full TypeScript** - End-to-end type safety
 
 ### Generated API Endpoints
+
 - `GET /api/users` - User management with type validation
-- `POST /api/users` - Create users with Zod schema validation  
+- `POST /api/users` - Create users with Zod schema validation
 - `POST /api/ai/chat` - AI assistant with Mastra integration
 - `GET /ui` - Interactive Swagger UI documentation
 - `GET /doc` - OpenAPI JSON specification
