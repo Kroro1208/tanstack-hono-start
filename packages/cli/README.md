@@ -17,7 +17,7 @@ A powerful CLI for creating modern fullstack applications with React 19, TanStac
 
 ```bash
 # Create a new project
-npx create-tanstack-hono-start my-awesome-app
+npx create-tanstack-hono-starter my-awesome-app
 
 # Or with npm
 npm create tanstack-hono-start my-awesome-app

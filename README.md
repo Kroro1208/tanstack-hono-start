@@ -1,7 +1,7 @@
 # 🚀 TanStack Hono Starter
 
-[![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
-[![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)
+[![npm version](https://badge.fury.io/js/create-tanstack-hono-starter.svg)](https://www.npmjs.com/package/create-tanstack-hono-starter)
+[![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-starter)](https://www.npmjs.com/package/create-tanstack-hono-starter)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Hono](https://img.shields.io/badge/Hono-FF6B35?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
@@ -29,13 +29,13 @@ _Create a modern fullstack app in seconds with React 19, TanStack Router, Hono O
 
 ```bash
 # Create a new project (recommended)
-npx create-tanstack-hono-start@latest my-awesome-app
+npx create-tanstack-hono-starter@latest my-awesome-app
 
 # Or with npm
-npm create tanstack-hono-start@latest my-awesome-app
+npm create tanstack-hono-starter@latest my-awesome-app
 
 # Or with yarn
-yarn create tanstack-hono-start@latest my-awesome-app
+yarn create tanstack-hono-starter@latest my-awesome-app
 ```
 
 ## 🎯 What's New in 2025
@@ -84,21 +84,21 @@ yarn create tanstack-hono-start@latest my-awesome-app
 
 ```bash
 # Interactive mode (recommended)
-npx create-tanstack-hono-start
+npx create-tanstack-hono-starter
 
 # Skip prompts with defaults
-npx create-tanstack-hono-start my-app --yes
+npx create-tanstack-hono-starter my-app --yes
 
 # Specify template
-npx create-tanstack-hono-start my-app --template basic
+npx create-tanstack-hono-starter my-app --template basic
 
 # List available templates
-npx create-tanstack-hono-start list
+npx create-tanstack-hono-starter list
 ```
 
 ## 🏗️ Generated Project Structure
 
-When you run `npx create-tanstack-hono-start my-app`, you'll get:
+When you run `npx create-tanstack-hono-starter my-app`, you'll get:
 
 ```
 my-app/                   # ← Your new project
@@ -114,13 +114,13 @@ my-app/                   # ← Your new project
 
 ```bash
 # Interactive mode
-npx create-tanstack-hono-start
+npx create-tanstack-hono-starter
 
 # Specify project name
-npx create-tanstack-hono-start my-project
+npx create-tanstack-hono-starter my-project
 
 # Choose template (coming soon)
-npx create-tanstack-hono-start my-project --template advanced
+npx create-tanstack-hono-starter my-project --template advanced
 ```
 
 ## 🤝 Why TanStack Router + Hono?
