@@ -204,7 +204,7 @@ function About() {
         </h2>
         <div className="bg-gray-800 rounded-lg p-4 mb-4">
           <code className="text-green-400 text-sm font-mono">
-            npx create-modern-fullstack my-awesome-app
+            npx create-tanstack-hono-start my-awesome-app
           </code>
         </div>
         <p className="text-gray-300 text-center text-sm">

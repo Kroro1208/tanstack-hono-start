@@ -84,21 +84,21 @@ yarn create tanstack-hono-start@latest my-awesome-app
 
 ```bash
 # Interactive mode (recommended)
-npx create-modern-fullstack
+npx create-tanstack-hono-start
 
 # Skip prompts with defaults
-npx create-modern-fullstack my-app --yes
+npx create-tanstack-hono-start my-app --yes
 
 # Specify template
-npx create-modern-fullstack my-app --template basic
+npx create-tanstack-hono-start my-app --template basic
 
 # List available templates
-npx create-modern-fullstack list
+npx create-tanstack-hono-start list
 ```
 
 ## 🏗️ Generated Project Structure
 
-When you run `npx tanstack-hono-starter my-app`, you'll get:
+When you run `npx create-tanstack-hono-start my-app`, you'll get:
 
 ```
 my-app/                   # ← Your new project
@@ -114,13 +114,13 @@ my-app/                   # ← Your new project
 
 ```bash
 # Interactive mode
-npx tanstack-hono-starter
+npx create-tanstack-hono-start
 
 # Specify project name
-npx tanstack-hono-starter my-project
+npx create-tanstack-hono-start my-project
 
 # Choose template (coming soon)
-npx tanstack-hono-starter my-project --template advanced
+npx create-tanstack-hono-start my-project --template advanced
 ```
 
 ## 🤝 Why TanStack Router + Hono?
