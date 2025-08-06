@@ -1,0 +1,6 @@
+{
+  "name": "basic",
+  "description": "Basic fullstack template with TanStack Router and Hono",
+  "features": ["router", "api", "typescript"],
+  "version": "0.1.0"
+}

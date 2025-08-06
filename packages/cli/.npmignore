@@ -1,0 +1,35 @@
+# Source files - keep only built files
+src/
+tsconfig.json
+
+# Development and test files
+*.test.*
+*.spec.*
+demo-test/
+perfect-test/
+test-output/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.tsbuildinfo
+.cache/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependencies (included in package.json)
+node_modules/
+
+# Environment files
+.env*
+.env.local
+.env.development
+.env.test
+.env.production

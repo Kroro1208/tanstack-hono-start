@@ -1,0 +1,29 @@
+{
+  "name": "tanstack-hono-starter",
+  "version": "0.1.0",
+  "description": "A modern fullstack CLI tool to quickly bootstrap applications with TanStack Router and Hono",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "keywords": [
+    "react",
+    "hono",
+    "tanstack-router",
+    "ai",
+    "mastra",
+    "fullstack",
+    "template"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

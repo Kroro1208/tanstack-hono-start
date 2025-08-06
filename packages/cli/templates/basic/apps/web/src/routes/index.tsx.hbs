@@ -1,0 +1,79 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { useState, useEffect } from 'react';
+
+function Home() {
+  const [apiStatus, setApiStatus] = useState<string>('Checking...');
+
+  useEffect(() => {
+    fetch('/api/health')
+      .then(res => res.json())
+      .then(data => setApiStatus(data.status))
+      .catch(() => setApiStatus('Error connecting to API'));
+  }, []);
+
+  return (
+    <div className="p-8 max-w-4xl mx-auto">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          🚀 Welcome to {{projectName}}
+        </h1>
+        <p className="text-lg text-gray-600 mb-8">
+          A modern fullstack application built with TanStack Router and Hono
+        </p>
+        
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-xl font-semibold mb-4">🔋 API Status</h2>
+          <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+            apiStatus === 'healthy' ? 'bg-green-100 text-green-800' : 
+            apiStatus === 'Checking...' ? 'bg-yellow-100 text-yellow-800' :
+            'bg-red-100 text-red-800'
+          }`}>
+            {apiStatus === 'healthy' && '✅'}
+            {apiStatus === 'Checking...' && '⏳'}
+            {apiStatus !== 'healthy' && apiStatus !== 'Checking...' && '❌'}
+            <span className="ml-2">{apiStatus}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-lg font-semibold mb-3 text-blue-600">⚡ Fast Development</h3>
+          <p className="text-gray-600">
+            Hot reloading, TypeScript support, and modern tooling for rapid development.
+          </p>
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-lg font-semibold mb-3 text-green-600">🎯 Type Safety</h3>
+          <p className="text-gray-600">
+            End-to-end type safety with TypeScript from frontend to backend.
+          </p>
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-lg font-semibold mb-3 text-purple-600">📦 Modern Stack</h3>
+          <p className="text-gray-600">
+            Built with the latest React, TanStack Router, and Hono for optimal performance.
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-gray-50 rounded-lg p-6">
+        <h2 className="text-xl font-semibold mb-4">🚀 Quick Start</h2>
+        <div className="space-y-2 text-sm">
+          <div className="bg-gray-900 text-green-400 p-3 rounded font-mono">
+            cd {{projectName}}
+          </div>
+          <div className="bg-gray-900 text-green-400 p-3 rounded font-mono">
+            npm run dev
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createFileRoute('/')({
+  component: Home,
+});

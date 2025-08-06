@@ -1,0 +1,55 @@
+{
+  "name": "create-modern-fullstack",
+  "version": "1.0.0",
+  "description": "🚀 CLI for creating modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI",
+  "main": "dist/index.js",
+  "bin": {
+    "create-modern-fullstack": "./dist/index.js"
+  },
+  "keywords": [
+    "cli",
+    "react",
+    "tanstack-router",
+    "hono",
+    "openapi",
+    "mastra",
+    "ai",
+    "fullstack",
+    "typescript",
+    "modern",
+    "scaffold"
+  ],
+  "author": "Modern Fullstack CLI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/create-modern-fullstack/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/create-modern-fullstack/cli/issues"
+  },
+  "homepage": "https://github.com/create-modern-fullstack/cli#readme",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo \"Test coming soon\""
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "inquirer": "^9.0.0",
+    "fs-extra": "^11.0.0",
+    "handlebars": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.0",
+    "@types/fs-extra": "^11.0.0",
+    "typescript": "^5.0.0"
+  }
+}

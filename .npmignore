@@ -1,0 +1,37 @@
+# Source files
+packages/cli/src/
+packages/cli/tsconfig.json
+
+# Development files
+demo-test/
+perfect-test/  
+test-output/
+*.test.*
+*.spec.*
+
+# Build artifacts
+*.tsbuildinfo
+.cache/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.github/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Environment
+.env*

@@ -1,0 +1,40 @@
+{
+  "name": "{{projectName}}",
+  "version": "0.1.0",
+  "description": "Modern fullstack application with TanStack Router and Hono",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "test": "npm run test --workspaces",
+    {{#if features.linting}}
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    {{/if}}
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.10.0"{{#if features.linting}},
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "prettier": "^3.1.1"{{/if}}
+  },
+  "keywords": [
+    "react",
+    "hono",
+    "tanstack-router",
+    "fullstack",
+    "typescript"{{#if features.auth}},
+    "auth"{{/if}}{{#if features.database}},
+    "database",
+    "drizzle"{{/if}}
+  ],
+  "author": "{{author}}",
+  "license": "MIT"
+}

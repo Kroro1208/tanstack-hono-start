@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+import { Command } from "commander";
+import inquirer from "inquirer";
+import fs from "fs-extra";
+import path from "path";
+import Handlebars from "handlebars";
+import { createProject } from "./lib/create-project";
+import { getTemplates } from "./lib/templates";
+
+const program = new Command();
+
+program
+  .name("create-modern-fullstack")
+  .description(
+    "🚀 A modern fullstack CLI tool to quickly bootstrap applications with TanStack Router and Hono"
+  )
+  .version("0.1.0");
+
+program
+  .argument("[project-name]", "project name")
+  .option("-t, --template <template>", "template to use", "basic")
+  .option("-y, --yes", "skip prompts and use defaults")
+  .action(async (projectName, options) => {
+    try {
+      console.log("🎉 Welcome to Modern Fullstack CLI!");
+      console.log("📦 Let's create something amazing together\n");
+      
+      await createProject(projectName, options);
+      
+      console.log("\n✅ Project created successfully!");
+      console.log("🚀 Happy coding!");
+    } catch (error) {
+      console.error("❌ Error creating project:", error instanceof Error ? error.message : String(error));
+      process.exit(1);
+    }
+  });
+
+program
+  .command("list")
+  .description("List available templates")
+  .action(() => {
+    const templates = getTemplates();
+    console.log("📋 Available templates:\n");
+    templates.forEach((template) => {
+      console.log(`  ${template.name} - ${template.description}`);
+    });
+  });
+
+program.parse();

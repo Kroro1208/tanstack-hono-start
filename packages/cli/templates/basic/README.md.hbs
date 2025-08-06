@@ -1,0 +1,164 @@
+# {{projectName}}
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Hono](https://img.shields.io/badge/Hono-FF6B35?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
+[![TanStack Router](https://img.shields.io/badge/TanStack_Router-FF4154?style=for-the-badge&logo=react-router&logoColor=white)](https://tanstack.com/router)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+
+> A modern fullstack application built with TanStack Router and Hono
+
+## ✨ Features
+
+- 🚀 **Modern Stack** - React 18, TanStack Router, Hono
+- ⚡ **Fast Development** - Hot reloading with Vite
+- 🎯 **Type Safety** - End-to-end TypeScript support
+- 📦 **Monorepo** - Clean workspace organization
+- 🧪 **Testing Ready** - Vitest setup included
+- 🎨 **Beautiful UI** - Responsive design with Tailwind CSS
+- 🔧 **Developer Experience** - ESLint, Prettier, and more
+
+## 🏗️ Project Structure
+
+```
+{{projectName}}/
+├── apps/
+│   ├── api/          # Hono API server
+│   └── web/          # React frontend
+├── packages/         # Shared packages (future)
+└── package.json      # Workspace configuration
+```
+
+## 🚀 Quick Start
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Start development servers**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser**
+   - Frontend: http://localhost:3000
+   - API: http://localhost:8000
+
+## 📜 Available Scripts
+
+```bash
+# Development
+npm run dev          # Start all services
+npm run build        # Build all packages
+npm run test         # Run tests
+
+{{#if features.linting}}
+# Code Quality
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix ESLint issues
+npm run format       # Format with Prettier
+{{/if}}
+
+# Type Checking
+npm run type-check   # Check TypeScript types
+```
+
+## 🛠️ Tech Stack
+
+### Frontend (Web App)
+- **React 18** - Modern React with concurrent features
+- **TanStack Router** - Type-safe routing
+- **Vite** - Lightning fast build tool
+- **TypeScript** - Type safety{{#if features.tailwind}}
+- **Tailwind CSS** - Utility-first CSS framework{{/if}}{{#if features.vitest}}
+- **Vitest** - Fast unit testing framework{{/if}}
+
+### Backend (API Server)
+- **Hono** - Ultrafast web framework
+- **Node.js** - JavaScript runtime
+- **TypeScript** - Type safety{{#if features.database}}
+- **Drizzle ORM** - Type-safe database toolkit{{/if}}{{#if features.auth}}
+- **Auth.js** - Authentication library{{/if}}
+
+## 🧪 Testing
+
+{{#if features.vitest}}
+Run tests with:
+```bash
+npm run test
+```
+
+Run tests with UI:
+```bash
+npm run test:ui
+```
+{{else}}
+Testing setup is ready to be configured with Vitest.
+{{/if}}
+
+## 📚 API Documentation
+
+The API server provides the following endpoints:
+
+- `GET /` - Welcome message
+- `GET /api/health` - Health check
+- `GET /api/hello` - Hello world with optional name parameter
+- `GET /api/users` - Get all users
+- `POST /api/users` - Create a new user
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# API Configuration
+PORT=8000
+NODE_ENV=production
+
+{{#if features.database}}
+# Database
+DATABASE_URL=postgresql://...
+{{/if}}
+
+{{#if features.auth}}
+# Authentication
+AUTH_SECRET=your-secret-key
+GITHUB_ID=your-github-id
+GITHUB_SECRET=your-github-secret
+{{/if}}
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Created with [Modern Fullstack CLI](https://github.com/your-username/modern-fullstack-cli)
+- Built with amazing open-source technologies
+
+---
+
+<div align="center">
+  <p>Made with ❤️ and modern web technologies</p>
+  <p>
+    <a href="https://github.com/{{author}}/{{projectName}}">⭐ Star this project</a>
+  </p>
+</div>
