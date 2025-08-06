@@ -17,13 +17,13 @@ A powerful CLI for creating modern fullstack applications with the latest techno
 
 ```bash
 # Create a new project
-npx create-modern-fullstack my-awesome-app
+npx create-tanstack-hono-start my-awesome-app
 
 # Or with npm
-npm create modern-fullstack my-awesome-app
+npm create tanstack-hono-start my-awesome-app
 
 # Or with yarn
-yarn create modern-fullstack my-awesome-app
+yarn create tanstack-hono-start my-awesome-app
 ```
 
 ## What's Included
