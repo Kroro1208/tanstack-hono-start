@@ -1,4 +1,4 @@
-# 🚀 TanStack Hono Starter
+# 🚀 TanStack Hono Start
 
 [![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)
