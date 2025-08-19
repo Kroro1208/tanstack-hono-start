@@ -1,34 +1,58 @@
 {
-  "name": "create-tanstack-hono-starter",
-  "version": "1.0.1",
-  "description": "🚀 CLI for creating modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI",
+  "name": "create-tanstack-hono-start",
+  "version": "1.0.9",
+  "description": "🚀 Fast CLI to create modern React 19 apps with TanStack Router, Hono API, TypeScript, and AI. Alternative to create-react-app with full-stack features.",
   "main": "dist/index.js",
   "bin": {
-    "create-tanstack-hono-starter": "./dist/index.js"
+    "create-tanstack-hono-start": "./dist/index.js"
   },
   "keywords": [
     "cli",
+    "create-app",
+    "boilerplate",
+    "scaffold",
+    "generator",
+    "starter",
+    "template",
     "react",
+    "react19",
+    "react-app",
+    "create-react-app",
+    "cra-alternative",
+    "vite",
+    "typescript",
+    "fullstack",
+    "full-stack",
+    "tanstack",
     "tanstack-router",
+    "router",
     "hono",
+    "api",
+    "backend",
     "openapi",
+    "swagger",
+    "rest-api",
     "mastra",
     "ai",
-    "fullstack",
-    "typescript",
+    "chatbot",
     "modern",
-    "scaffold"
+    "fast",
+    "lightweight",
+    "type-safe",
+    "zod",
+    "tailwind",
+    "css"
   ],
   "author": "Modern Fullstack CLI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/create-modern-fullstack/cli"
+    "url": "https://github.com/Kroro1208/tanstack-hono-starter"
   },
   "bugs": {
-    "url": "https://github.com/create-modern-fullstack/cli/issues"
+    "url": "https://github.com/Kroro1208/tanstack-hono-starter/issues"
   },
-  "homepage": "https://github.com/create-modern-fullstack/cli#readme",
+  "homepage": "https://github.com/Kroro1208/tanstack-hono-starter/blob/main/README.md",
   "files": [
     "dist",
     "templates"

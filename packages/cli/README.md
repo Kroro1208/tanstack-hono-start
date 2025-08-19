@@ -1,30 +1,51 @@
-# TanStack Hono Starter 🚀
+# create-tanstack-hono-start 🚀
 
-A powerful CLI for creating modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI.
+**The fastest way to create modern React 19 full-stack applications**
+
+A lightning-fast CLI that scaffolds production-ready apps with React 19, TanStack Router, Hono API, TypeScript, and AI integration. Perfect alternative to create-react-app with full-stack capabilities built-in.
+
+[![npm version](https://img.shields.io/npm/v/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
+[![npm downloads](https://img.shields.io/npm/dw/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
+
+## Why This CLI?
+
+✨ **Zero Configuration** - Works out of the box  
+🚀 **Full-Stack Ready** - Frontend + Backend + AI in one command  
+⚡ **Lightning Fast** - Powered by Vite and modern tooling  
+🔒 **Type-Safe** - End-to-end TypeScript with runtime validation  
+📱 **Modern React 19** - Latest features and performance  
+🤖 **AI-First** - Built-in AI assistant and chat capabilities  
 
 ## Features
 
-- **React 19** with the newest features and performance improvements
-- **TanStack Router** for type-safe routing
-- **Hono OpenAPI** for backend with automatic API documentation
-- **Mastra AI** integration for intelligent applications
-- **End-to-end type safety** with Zod schemas
-- **React Query** for server state management
-- **Tailwind CSS** for beautiful, responsive designs
-- **TypeScript** throughout the entire stack
+- ⚛️ **React 19** with the newest features and performance improvements
+- 🛣️ **TanStack Router** for type-safe, file-based routing
+- ⚡ **Hono OpenAPI** - Ultra-fast backend with automatic API docs
+- 🤖 **Mastra AI** integration for intelligent applications
+- 🔒 **End-to-end type safety** with Zod schemas
+- 🔄 **React Query** for server state management
+- 🎨 **Tailwind CSS** for beautiful, responsive designs
+- 📝 **TypeScript** throughout the entire stack
+- 📚 **Auto-generated API docs** with Swagger UI
+- 🔧 **DevX optimized** with hot reload and instant feedback
 
 ## Quick Start
 
 ```bash
-# Create a new project
-npx create-tanstack-hono-starter my-awesome-app
+# Create a new project (fastest way)
+npx create-tanstack-hono-start my-awesome-app
 
 # Or with npm
-npm create tanstack-hono-starter my-awesome-app
+npm create tanstack-hono-start my-awesome-app
 
 # Or with yarn
-yarn create tanstack-hono-starter my-awesome-app
+yarn create tanstack-hono-start my-awesome-app
+
+# Or with pnpm
+pnpm create tanstack-hono-start my-awesome-app
 ```
+
+> **Why choose this over create-react-app?** Get a full-stack application with backend API, TypeScript, AI integration, and modern tooling in seconds - not hours of setup!
 
 ## What's Included
 
@@ -84,14 +105,34 @@ npm run dev
 - `POST /api/ai/chat` - AI assistant
 - `GET /api/health` - Health check
 
+## Popular Use Cases
+
+- 🏢 **Enterprise Apps** - Full-stack apps with type safety
+- 🛒 **E-commerce** - Product catalogs with AI recommendations  
+- 📊 **Dashboards** - Analytics with real-time data
+- 🤖 **AI Apps** - Chat interfaces and intelligent features
+- 📱 **SaaS Products** - Multi-tenant applications
+- 🎮 **Interactive Apps** - Real-time features and animations
+
+## Comparison
+
+| Feature | create-react-app | Vite | **create-tanstack-hono-start** |
+|---------|------------------|------|-----------------------------|
+| Setup Time | 5-10 min | 2-5 min | **30 seconds** |
+| Backend Included | ❌ | ❌ | **✅ Full API** |
+| TypeScript Setup | Manual | Manual | **✅ Pre-configured** |
+| AI Integration | ❌ | ❌ | **✅ Built-in** |
+| API Documentation | ❌ | ❌ | **✅ Auto-generated** |
+| Type-Safe Routing | ❌ | ❌ | **✅ TanStack Router** |
+
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](https://github.com/create-modern-fullstack/cli/blob/main/CONTRIBUTING.md).
+We welcome contributions! Please see our [Contributing Guide](https://github.com/Kroro1208/tanstack-hono-starter/blob/main/CONTRIBUTING.md).
 
 ## License
 
-MIT © [TanStack Hono Starter](https://github.com/Kroro1208/tanstack-hono-starter)
+MIT © [create-tanstack-hono-start](https://github.com/Kroro1208/tanstack-hono-starter)
 
 ---
 
-**Happy coding!** 🎉
+⭐ **If this helps you build awesome apps, please star the repo!** ⭐
