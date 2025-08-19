@@ -1,5 +1,5 @@
 {
-  "name": "tanstack-hono-starter",
+  "name": "tanstack-hono-start",
   "version": "0.1.0",
   "description": "A modern fullstack CLI tool to quickly bootstrap applications with TanStack Router and Hono",
   "private": true,
