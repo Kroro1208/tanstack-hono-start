@@ -4,20 +4,13 @@ import { swaggerUI } from '@hono/swagger-ui';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
-import { Mastra, Agent } from '@mastra/core';
+import OpenAI from 'openai';
 
 const app = new OpenAPIHono();
 
-// Initialize Mastra AI agent
-const mastra = new Mastra();
-
-const assistant = new Agent({
-  name: '{{projectName}}-assistant',
-  instructions: 'You are a helpful AI assistant for the {{projectName}} application.',
-  model: {
-    provider: 'OPEN_AI',
-    name: 'gpt-4o-mini',
-  },
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Define schemas for type safety
@@ -136,13 +129,25 @@ app.openapi(aiChatRoute, async (c) => {
   const { message, context } = c.req.valid('json');
   
   try {
-    // Use Mastra AI agent to generate response
-    const response = await assistant.generate(
-      context ? `Context: ${context}\nMessage: ${message}` : message
-    );
+    // Use OpenAI API to generate response
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'system',
+          content: `You are a helpful AI assistant for the {{projectName}} application.${context ? ` Context: ${context}` : ''}`,
+        },
+        {
+          role: 'user',
+          content: message,
+        },
+      ],
+      max_tokens: 500,
+      temperature: 0.7,
+    });
     
     return c.json({
-      response: response.text || 'I apologize, but I could not generate a response.',
+      response: completion.choices[0]?.message?.content || 'I apologize, but I could not generate a response.',
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
