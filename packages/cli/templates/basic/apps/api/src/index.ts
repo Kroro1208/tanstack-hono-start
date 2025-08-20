@@ -5,6 +5,7 @@ import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import OpenAI from 'openai';
+import 'dotenv/config';
 
 const app = new OpenAPIHono();
 
