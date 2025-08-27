@@ -42,6 +42,8 @@ yarn create tanstack-hono-start@latest my-awesome-app
 
 - 🆕 **React 19** - Latest React with improved performance and features
 - 🔗 **Hono OpenAPI** - Auto-generated API documentation with Swagger UI
+
+![OpenAPI Documentation](./openapi.gif)
 - 🤖 **Mastra AI** - Built-in AI assistant capabilities
 - 🔒 **End-to-End Type Safety** - Shared Zod schemas between frontend/backend
 - ⚡ **React Query** - Advanced server state management
