@@ -77,8 +77,39 @@ yarn create tanstack-hono-start@latest my-awesome-app
 
 ## 🛠️ Available Templates
 
-- **basic** - Essential fullstack setup with React + Hono
-- **advanced** - Includes auth, database, and testing (coming soon)
+### 🔰 **Basic Template**
+```bash
+npx create-tanstack-hono-start my-app --template basic
+```
+**Perfect for:**
+- 🎓 Learning React and fullstack development
+- 🚀 Small to medium projects
+- 📚 Understanding each piece as you add it
+
+**What's included:**
+- React 19 + TanStack Router frontend
+- Hono API with OpenAPI/Swagger
+- TypeScript end-to-end
+- **Choose your features:** Vitest, Tailwind, Auth, Database, ESLint, CI/CD, Docker
+
+### 🚀 **Advanced Template**
+```bash
+npx create-tanstack-hono-start my-app --template advanced
+```
+**Perfect for:**
+- 💼 Production-ready applications
+- ⚡ Experienced developers who want everything
+- 🎯 Getting started immediately without setup
+
+**What's included (ALL features):**
+- ✅ React 19 + TanStack Router + Auth
+- ✅ Hono API + Database (PostgreSQL + Drizzle ORM)
+- ✅ User authentication system (register/login)
+- ✅ Testing setup (Vitest + React Testing Library)
+- ✅ Code quality (ESLint + Prettier)
+- ✅ CI/CD (GitHub Actions)
+- ✅ Docker containerization
+- ✅ Tailwind CSS styling
 
 ## 📋 CLI Options
 
@@ -112,15 +143,45 @@ my-app/                   # ← Your new project
 
 ## 🛠️ Usage
 
+### 🎯 Step-by-Step Experience
+
+#### **Basic Template Flow:**
 ```bash
-# Interactive mode
+$ npx create-tanstack-hono-start my-app
+? Which template would you like to use? basic
+? Select additional features:
+ ◯ 🧪 Vitest Testing
+ ◯ 🎨 Tailwind CSS
+ ◯ 🔒 Authentication (Auth.js)
+ ◯ 🗃️ Database (Drizzle ORM)
+ ◯ 🔧 ESLint + Prettier
+ ◯ 🚀 GitHub Actions CI/CD
+ ◯ 🐳 Docker
+```
+
+#### **Advanced Template Flow:**
+```bash
+$ npx create-tanstack-hono-start my-app
+? Which template would you like to use? advanced
+# 👆 Feature selection is SKIPPED - all features included automatically!
+🏗️  Creating project...
+✅ Project created successfully!
+```
+
+### 💡 Quick Commands
+
+```bash
+# Interactive mode (recommended for beginners)
 npx create-tanstack-hono-start
 
-# Specify project name
-npx create-tanstack-hono-start my-project
+# Skip all prompts with basic template
+npx create-tanstack-hono-start my-project --template basic --yes
 
-# Choose template (coming soon)
+# Get everything with advanced template
 npx create-tanstack-hono-start my-project --template advanced
+
+# List available templates and features
+npx create-tanstack-hono-start list
 ```
 
 ## 🤝 Why TanStack Router + Hono?

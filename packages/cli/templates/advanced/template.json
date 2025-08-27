@@ -1,0 +1,6 @@
+{
+  "name": "advanced",
+  "description": "Advanced template with auth, database, and testing",
+  "features": ["router", "api", "typescript", "auth", "database", "vitest", "linting", "github-actions", "docker"],
+  "version": "0.1.0"
+}

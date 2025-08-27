@@ -49,26 +49,32 @@ export async function createProject(projectName?: string, options: ProjectOption
     ]);
     selectedTemplate = templatePrompt.template;
 
-    const featuresPrompt = await inquirer.prompt([
-      {
-        type: "checkbox",
-        name: "features",
-        message: "Select additional features:",
-        choices: [
-          { name: "🧪 Vitest Testing", value: "vitest" },
-          { name: "🎨 Tailwind CSS", value: "tailwind" },
-          { name: "🔒 Authentication (Auth.js)", value: "auth" },
-          { name: "🗃️ Database (Drizzle ORM)", value: "database" },
-          { name: "🔧 ESLint + Prettier", value: "linting" },
-          { name: "🚀 GitHub Actions CI/CD", value: "github-actions" },
-          { name: "🐳 Docker", value: "docker" },
-        ],
-        default: ["linting", "vitest"],
-      },
-    ]);
-
-    selectedTemplate = templatePrompt.template;
-    options = { ...options, features: featuresPrompt.features };
+    // Skip feature selection for advanced template (all features included by default)
+    if (selectedTemplate === 'advanced') {
+      options = { 
+        ...options, 
+        features: ["vitest", "tailwind", "auth", "database", "linting", "github-actions", "docker"] 
+      };
+    } else {
+      const featuresPrompt = await inquirer.prompt([
+        {
+          type: "checkbox",
+          name: "features",
+          message: "Select additional features:",
+          choices: [
+            { name: "🧪 Vitest Testing", value: "vitest" },
+            { name: "🎨 Tailwind CSS", value: "tailwind" },
+            { name: "🔒 Authentication (Auth.js)", value: "auth" },
+            { name: "🗃️ Database (Drizzle ORM)", value: "database" },
+            { name: "🔧 ESLint + Prettier", value: "linting" },
+            { name: "🚀 GitHub Actions CI/CD", value: "github-actions" },
+            { name: "🐳 Docker", value: "docker" },
+          ],
+          default: ["linting", "vitest"],
+        },
+      ]);
+      options = { ...options, features: featuresPrompt.features };
+    }
   }
 
   const projectPath = path.resolve(process.cwd(), finalProjectName!);

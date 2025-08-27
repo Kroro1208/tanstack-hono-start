@@ -1,0 +1,44 @@
+{
+  "name": "{{projectName}}",
+  "version": "0.1.0",
+  "description": "Modern fullstack application with TanStack Router, Hono, Auth & Database",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "prettier": "^3.1.1",
+    "drizzle-kit": "^0.20.0"
+  },
+  "keywords": [
+    "react",
+    "hono",
+    "tanstack-router",
+    "fullstack",
+    "typescript",
+    "auth",
+    "database",
+    "drizzle",
+    "testing",
+    "docker"
+  ],
+  "author": "{{author}}",
+  "license": "MIT"
+}

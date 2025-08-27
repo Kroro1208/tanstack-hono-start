@@ -1,0 +1,276 @@
+# {{projectName}}
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Hono](https://img.shields.io/badge/Hono-FF6B35?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
+[![TanStack Router](https://img.shields.io/badge/TanStack_Router-FF4154?style=for-the-badge&logo=react-router&logoColor=white)](https://tanstack.com/router)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+
+> 🚀 **Advanced Template** - Production-ready fullstack application with authentication, database, testing, and deployment
+
+## ✨ Features
+
+**🚀 Advanced Template** - All features included by default:
+
+✅ **Vitest Testing** - Complete testing setup with React Testing Library  
+✅ **Tailwind CSS** - Beautiful, responsive styling  
+✅ **Authentication** - Full user registration/login system  
+✅ **Database** - PostgreSQL with Drizzle ORM  
+✅ **ESLint + Prettier** - Code quality and formatting  
+✅ **GitHub Actions** - Automated CI/CD pipeline  
+✅ **Docker** - Full containerization with docker-compose
+
+**Always included:**
+- 🚀 **Modern Stack** - React 19, TanStack Router, Hono
+- ⚡ **Fast Development** - Hot reloading with Vite  
+- 🎯 **Type Safety** - End-to-end TypeScript support
+- 📦 **Monorepo** - Clean workspace organization
+
+## 🏗️ Project Structure
+
+```
+{{projectName}}/
+├── apps/
+│   ├── api/              # Hono API server
+│   │   ├── src/
+│   │   │   ├── routes/   # API routes (auth, users, etc.)
+│   │   │   ├── db/       # Database schema and connection
+│   │   │   └── index.ts  # Main server
+│   │   └── package.json
+│   └── web/              # React frontend
+│       ├── src/
+│       │   ├── routes/   # TanStack Router pages
+│       │   ├── lib/      # Utilities and API client
+│       │   └── test/     # Test setup
+│       └── package.json
+├── .env.example          # Environment variables template
+├── .eslintrc.json        # ESLint configuration
+├── .prettierrc          # Prettier configuration
+├── docker-compose.yml   # Docker services
+├── drizzle.config.ts    # Database configuration
+└── .github/
+    └── workflows/
+        └── ci.yml       # GitHub Actions CI/CD
+```
+
+## 🚀 Quick Start
+
+### 1. **Set up environment variables**
+```bash
+cp .env.example .env
+# Edit .env with your database credentials and API keys
+```
+
+### 2. **Start with Docker (Recommended)**
+```bash
+# Start all services (database, api, web)
+docker-compose up
+
+# Or start in background
+docker-compose up -d
+```
+
+**Access your app:**
+- 🌐 Frontend: http://localhost:3000
+- 🔗 API: http://localhost:8000  
+- 📚 API Docs: http://localhost:8000/ui
+- 🗄️ Database: localhost:5432
+
+### 3. **Or start manually**
+
+**Start Database:**
+```bash
+# Make sure PostgreSQL is running
+# Create database: {{projectName}}
+```
+
+**Install dependencies:**
+```bash
+npm install
+```
+
+**Run database migrations:**
+```bash
+npm run db:generate
+npm run db:migrate
+```
+
+**Start development:**
+```bash
+npm run dev
+```
+
+## 📜 Available Scripts
+
+### Development
+```bash
+npm run dev          # Start all services
+npm run build        # Build all packages
+npm run test         # Run all tests
+npm run test:ui      # Run tests with UI
+```
+
+### Code Quality
+```bash
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix ESLint issues
+npm run format       # Format with Prettier
+npm run type-check   # Check TypeScript types
+```
+
+### Database
+```bash
+npm run db:generate  # Generate migrations
+npm run db:migrate   # Run migrations  
+npm run db:studio    # Open Drizzle Studio (database GUI)
+```
+
+### Docker
+```bash
+docker-compose up    # Start all services
+docker-compose down  # Stop all services
+docker-compose build # Rebuild images
+```
+
+## 🛠️ Tech Stack
+
+### Frontend (Web App)
+- **React 18** - Modern React with concurrent features
+- **TanStack Router** - Type-safe routing
+- **Vite** - Lightning fast build tool
+- **TypeScript** - Type safety{{#if features.tailwind}}
+- **Tailwind CSS** - Utility-first CSS framework{{/if}}{{#if features.vitest}}
+- **Vitest** - Fast unit testing framework{{/if}}
+
+### Backend (API Server)
+- **Hono** - Ultrafast web framework
+- **Node.js** - JavaScript runtime
+- **TypeScript** - Type safety{{#if features.database}}
+- **Drizzle ORM** - Type-safe database toolkit{{/if}}{{#if features.auth}}
+- **Auth.js** - Authentication library{{/if}}
+
+## 🧪 Testing
+
+{{#if features.vitest}}
+Run tests with:
+```bash
+npm run test
+```
+
+Run tests with UI:
+```bash
+npm run test:ui
+```
+{{else}}
+Testing setup is ready to be configured with Vitest.
+{{/if}}
+
+## 📚 API Documentation
+
+### 🌐 **Interactive API Documentation**
+
+**Swagger UI (推奨):**
+```
+http://localhost:8000/ui
+```
+- 📋 全APIエンドポイント一覧表示
+- 🧪 ブラウザから直接APIテスト実行
+- 📝 リクエスト/レスポンス詳細確認
+- 💡 実際にAPIを叩いて動作確認可能
+
+**OpenAPI JSON仕様書:**
+```
+http://localhost:8000/doc
+```
+
+### 🛠️ **利用可能エンドポイント**
+
+**基本API:**
+- `GET /` - APIステータス確認
+- `GET /api/health` - ヘルスチェック
+- `GET /api/hello?name=yourname` - Hello API
+
+**ユーザー管理:**
+- `GET /api/users` - ユーザー一覧取得
+- `POST /api/users` - 新規ユーザー作成
+
+**認証システム:**
+- `POST /api/auth/register` - ユーザー登録
+- `POST /api/auth/login` - ログイン
+- `GET /api/auth/me` - 現在のユーザー情報
+
+**AI機能:**
+- `POST /api/ai/chat` - AI チャット機能
+
+### 🧪 **API使用例**
+
+**ユーザー登録:**
+```bash
+curl -X POST http://localhost:8000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","password":"password123","name":"Test User"}'
+```
+
+**AI チャット:**
+```bash
+curl -X POST http://localhost:8000/api/ai/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message":"Hello, can you help me?","context":"React development"}'
+```
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# API Configuration
+PORT=8000
+NODE_ENV=production
+
+{{#if features.database}}
+# Database
+DATABASE_URL=postgresql://...
+{{/if}}
+
+{{#if features.auth}}
+# Authentication
+AUTH_SECRET=your-secret-key
+GITHUB_ID=your-github-id
+GITHUB_SECRET=your-github-secret
+{{/if}}
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Created with [Modern Fullstack CLI](https://github.com/your-username/modern-fullstack-cli)
+- Built with amazing open-source technologies
+
+---
+
+<div align="center">
+  <p>Made with ❤️ and modern web technologies</p>
+  <p>
+    <a href="https://github.com/{{author}}/{{projectName}}">⭐ Star this project</a>
+  </p>
+</div>
