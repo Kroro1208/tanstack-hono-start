@@ -4,16 +4,14 @@ import { swaggerUI } from '@hono/swagger-ui';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
-import OpenAI from 'openai';
 import { auth } from './routes/auth';
+import { AIProviderManager } from './lib/ai-providers';
 import 'dotenv/config';
 
 const app = new OpenAPIHono();
 
-// Initialize OpenAI client (optional)
-const openai = process.env.OPENAI_API_KEY ? new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-}) : null;
+// Initialize AI Provider Manager
+const aiManager = new AIProviderManager();
 
 // Define schemas for type safety
 const UserSchema = z.object({
@@ -31,11 +29,13 @@ const CreateUserSchema = z.object({
 const AIRequestSchema = z.object({
   message: z.string().openapi({ example: 'Hello, can you help me?' }),
   context: z.string().optional().openapi({ example: 'user management' }),
+  provider: z.string().optional().openapi({ example: 'openai', description: 'AI provider: openai, anthropic, google, azure-openai' }),
 });
 
 const AIResponseSchema = z.object({
   response: z.string().openapi({ example: 'I can help you with that!' }),
   timestamp: z.string().openapi({ example: '2024-01-01T00:00:00Z' }),
+  provider: z.string().openapi({ example: 'OpenAI' }),
 });
 
 // Middleware
@@ -52,7 +52,7 @@ app.doc('/doc', {
   info: {
     version: '1.0.0',
     title: '{{projectName}} API',
-    description: 'Modern Fullstack API with TanStack Router, Hono OpenAPI, and Mastra AI',
+    description: 'Modern Fullstack API with TanStack Router, Hono OpenAPI, and Multi-AI Provider Support (GPT-5, Claude Opus 4.1, Gemini 2.5)',
   },
 });
 
@@ -131,47 +131,60 @@ const aiChatRoute = createRoute({
 });
 
 app.openapi(aiChatRoute, async (c) => {
-  const { message, context } = c.req.valid('json');
-  
-  if (!openai) {
-    return c.json({
-      response: 'OpenAI API key not configured. Please set OPENAI_API_KEY environment variable.',
-      timestamp: new Date().toISOString(),
-    }, 400);
-  }
+  const { message, context, provider } = c.req.valid('json');
   
   try {
-    // Use OpenAI API to generate response
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        {
-          role: 'system',
-          content: `You are a helpful AI assistant for the {{projectName}} application.${context ? ` Context: ${context}` : ''}`,
-        },
-        {
-          role: 'user',
-          content: message,
-        },
-      ],
-      max_tokens: 500,
-      temperature: 0.7,
-    });
+    const result = await aiManager.generateResponse({
+      message,
+      context,
+    }, provider);
     
-    return c.json({
-      response: completion.choices[0]?.message?.content || 'I apologize, but I could not generate a response.',
-      timestamp: new Date().toISOString(),
-    });
+    return c.json(result);
   } catch (error) {
     console.error('AI generation error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    
     return c.json(
       {
-        response: 'I apologize, but I encountered an error processing your request.',
+        response: `I apologize, but I encountered an error: ${errorMessage}`,
         timestamp: new Date().toISOString(),
+        provider: provider || process.env.AI_PROVIDER || 'unknown',
       },
       500
     );
   }
+});
+
+// AI Providers Status Route
+const aiProvidersRoute = createRoute({
+  method: 'get',
+  path: '/api/ai/providers',
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({
+            providers: z.array(z.object({
+              name: z.string(),
+              configured: z.boolean(),
+            })),
+            currentProvider: z.string(),
+          }),
+        },
+      },
+      description: 'Available AI providers and their configuration status',
+    },
+  },
+});
+
+app.openapi(aiProvidersRoute, (c) => {
+  const providers = aiManager.getAvailableProviders();
+  const currentProvider = process.env.AI_PROVIDER || 'openai';
+  
+  return c.json({
+    providers,
+    currentProvider,
+  });
 });
 
 // User Management Routes with OpenAPI
