@@ -1,5 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { useState, useEffect } from 'react';
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 interface AIProvider {
   name: string;
@@ -14,21 +14,21 @@ interface AIResponse {
 
 const AIChat = () => {
   const [providers, setProviders] = useState<AIProvider[]>([]);
-  const [currentProvider, setCurrentProvider] = useState('anthropic');
-  const [message, setMessage] = useState('');
-  const [context, setContext] = useState('');
+  const [currentProvider, setCurrentProvider] = useState("anthropic");
+  const [message, setMessage] = useState("");
+  const [context, setContext] = useState("");
   const [response, setResponse] = useState<AIResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Load providers on component mount
   useEffect(() => {
-    fetch('http://localhost:8000/api/ai/providers')
-      .then(res => res.json())
-      .then(data => {
+    fetch("http://localhost:8000/api/ai/providers")
+      .then((res) => res.json())
+      .then((data) => {
         setProviders(data.providers);
         setCurrentProvider(data.currentProvider);
       })
-      .catch(err => console.error('Failed to load providers:', err));
+      .catch((err) => console.error("Failed to load providers:", err));
   }, []);
 
   const sendMessage = async (e: React.FormEvent) => {
@@ -37,10 +37,10 @@ const AIChat = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/ai/chat', {
-        method: 'POST',
+      const res = await fetch("http://localhost:8000/api/ai/chat", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           message,
@@ -52,11 +52,11 @@ const AIChat = () => {
       const data = await res.json();
       setResponse(data);
     } catch (error) {
-      console.error('Failed to send message:', error);
+      console.error("Failed to send message:", error);
       setResponse({
-        response: 'Failed to connect to AI service',
+        response: "Failed to connect to AI service",
         timestamp: new Date().toISOString(),
-        provider: 'error',
+        provider: "error",
       });
     } finally {
       setLoading(false);
@@ -64,22 +64,24 @@ const AIChat = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="p-8 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             🤖 AI Assistant
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Chat with AI using multiple providers. Switch between OpenAI, Anthropic, Google, and Azure models.
+            Chat with AI using multiple providers. Switch between OpenAI,
+            Anthropic, Google, and Azure models.
           </p>
         </div>
 
         {/* Provider Selection */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">🔧 AI Provider Settings</h2>
-          
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            🔧 AI Provider Settings
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Provider Selection */}
             <div>
@@ -92,8 +94,8 @@ const AIChat = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 {providers.map((provider) => (
-                  <option 
-                    key={provider.name} 
+                  <option
+                    key={provider.name}
                     value={provider.name}
                     disabled={!provider.configured}
                   >
@@ -110,15 +112,16 @@ const AIChat = () => {
               </label>
               <div className="space-y-2">
                 {providers.map((provider) => (
-                  <div 
+                  <div
                     key={provider.name}
                     className={`px-3 py-2 rounded-lg text-sm ${
-                      provider.configured 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-red-100 text-red-800'
+                      provider.configured
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
                     }`}
                   >
-                    {provider.name}: {provider.configured ? 'Ready' : 'Not Configured'}
+                    {provider.name}:{" "}
+                    {provider.configured ? "Ready" : "Not Configured"}
                   </div>
                 ))}
               </div>
@@ -128,8 +131,10 @@ const AIChat = () => {
 
         {/* Chat Interface */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">💬 Chat with AI</h2>
-          
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            💬 Chat with AI
+          </h2>
+
           <form onSubmit={sendMessage} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -163,7 +168,7 @@ const AIChat = () => {
               disabled={loading || !message.trim()}
               className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
             >
-              {loading ? '🤔 Thinking...' : `💬 Send to ${currentProvider}`}
+              {loading ? "🤔 Thinking..." : `💬 Send to ${currentProvider}`}
             </button>
           </form>
         </div>
@@ -172,7 +177,9 @@ const AIChat = () => {
         {response && (
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">🤖 AI Response</h2>
+              <h2 className="text-xl font-semibold text-gray-900">
+                🤖 AI Response
+              </h2>
               <div className="flex items-center space-x-2">
                 <span className="text-sm text-gray-500">Provider:</span>
                 <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
@@ -180,23 +187,25 @@ const AIChat = () => {
                 </span>
               </div>
             </div>
-            
+
             <div className="bg-gray-50 rounded-lg p-4 mb-4">
               <div className="prose max-w-none">
-                <p className="text-gray-800 whitespace-pre-wrap">{response.response}</p>
+                <p className="text-gray-800 whitespace-pre-wrap">
+                  {response.response}
+                </p>
               </div>
             </div>
-            
+
             <div className="text-xs text-gray-500">
-              Response generated at: {new Date(response.timestamp).toLocaleString()}
+              Response generated at:{" "}
+              {new Date(response.timestamp).toLocaleString()}
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 };
 
-export const Route = createFileRoute('/ai')({
+export const Route = createFileRoute("/ai")({
   component: AIChat,
 });
