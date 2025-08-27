@@ -82,9 +82,17 @@ export async function createProject(projectName?: string, options: ProjectOption
   await fs.ensureDir(projectPath);
   
   const templateData = getTemplateData(selectedTemplate);
+  
+  // Convert features array to object for Handlebars templates
+  const featuresObj = (options.features || []).reduce((acc, feature) => {
+    acc[feature] = true;
+    return acc;
+  }, {} as Record<string, boolean>);
+  
   await scaffoldTemplate(projectPath, templateData, {
     projectName: finalProjectName!,
-    ...options,
+    features: featuresObj,
+    author: "Your Name",
   });
 
   console.log(`\n📦 Installing dependencies...`);
@@ -135,8 +143,11 @@ async function copyAndProcessTemplate(
         const template = Handlebars.compile(content);
         const processed = template(variables);
         
-        const outputFileName = file.replace('.hbs', '');
-        await fs.writeFile(path.join(outputPath, outputFileName), processed);
+        // Skip empty files (when features are not selected)
+        if (processed.trim()) {
+          const outputFileName = file.replace('.hbs', '');
+          await fs.writeFile(path.join(outputPath, outputFileName), processed);
+        }
       } else {
         await fs.copy(sourcePath, targetPath);
       }
