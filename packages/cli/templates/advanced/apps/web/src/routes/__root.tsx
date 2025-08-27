@@ -36,6 +36,12 @@ export const Route = createRootRoute({
               >
                 👥 Users
               </Link>
+              <Link 
+                to="/ai" 
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 [&.active]:bg-blue-100 [&.active]:text-blue-700 [&.active]:font-semibold"
+              >
+                🤖 AI Chat
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -68,6 +74,12 @@ export const Route = createRootRoute({
                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 [&.active]:bg-blue-100 [&.active]:text-blue-700"
               >
                 👥 Users
+              </Link>
+              <Link 
+                to="/ai" 
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 [&.active]:bg-blue-100 [&.active]:text-blue-700"
+              >
+                🤖 AI Chat
               </Link>
             </div>
           </div>

@@ -29,7 +29,14 @@ program
       await createProject(projectName, options);
       
       console.log("\n✅ Project created successfully!");
-      console.log("🚀 Happy coding!");
+      console.log("\n🚀 Next Steps:");
+      console.log(`   cd ${projectName}`);
+      console.log("   npm run dev");
+      console.log("\n📱 Your app will be running at:");
+      console.log("   🌐 Frontend: http://localhost:3000");
+      console.log("   🔗 API: http://localhost:8000");
+      console.log("   📚 API Docs: http://localhost:8000/ui");
+      console.log("\n💡 Happy coding!");
     } catch (error) {
       console.error("❌ Error creating project:", error instanceof Error ? error.message : String(error));
       process.exit(1);

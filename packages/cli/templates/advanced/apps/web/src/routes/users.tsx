@@ -1,17 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiClient, type User, type CreateUser, type AIRequest } from '../lib/api';
+import { useQuery } from '@tanstack/react-query';
+import { apiClient, type User } from '../lib/api';
 
 function Users() {
-  const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const [showCreateForm, setShowCreateForm] = useState(false);
-  const [showAIChat, setShowAIChat] = useState(false);
-  const [aiMessage, setAiMessage] = useState('');
-  const [newUser, setNewUser] = useState<CreateUser>({ name: '', email: '' });
 
   // Queries and mutations with React Query
   const { data: users = [], isLoading, error } = useQuery({
@@ -19,36 +14,10 @@ function Users() {
     queryFn: () => apiClient.getUsers(),
   });
 
-  const createUserMutation = useMutation({
-    mutationFn: (userData: CreateUser) => apiClient.createUser(userData),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] });
-      setShowCreateForm(false);
-      setNewUser({ name: '', email: '' });
-    },
-  });
-
-  const aiChatMutation = useMutation({
-    mutationFn: (request: AIRequest) => apiClient.chatWithAI(request),
-  });
-
   const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleCreateUser = (e: React.FormEvent) => {
-    e.preventDefault();
-    createUserMutation.mutate(newUser);
-  };
-
-  const handleAIChat = (e: React.FormEvent) => {
-    e.preventDefault();
-    aiChatMutation.mutate({
-      message: aiMessage,
-      context: 'user management',
-    });
-  };
 
   if (isLoading) {
     return (
@@ -69,7 +38,7 @@ function Users() {
           <div className="bg-red-50 border border-red-200 rounded-lg p-8 max-w-md mx-auto">
             <div className="text-red-500 text-4xl mb-4">⚠️</div>
             <h3 className="text-lg font-medium text-red-900 mb-2">Connection Error</h3>
-            <p className="text-red-700 mb-4">{error}</p>
+            <p className="text-red-700 mb-4">{error instanceof Error ? error.message : 'An error occurred'}</p>
             <button 
               onClick={() => window.location.reload()}
               className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
@@ -222,7 +191,7 @@ function Users() {
       </div>
 
       {/* Empty State */}
-      {filteredUsers.length === 0 && !loading && (
+      {filteredUsers.length === 0 && !isLoading && (
         <div className="text-center py-16">
           <div className="text-gray-400 text-6xl mb-4">🔍</div>
           <h3 className="text-lg font-medium text-gray-900 mb-2">No users found</h3>
