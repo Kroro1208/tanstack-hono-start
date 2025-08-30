@@ -20,6 +20,10 @@
     "test": "npm run test --workspaces"
   },
   "keywords": [
+    "create",
+    "create-tanstack-hono-start",
+    "cli",
+    "starter",
     "react",
     "hono",
     "tanstack-router",

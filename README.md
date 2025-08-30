@@ -1,5 +1,19 @@
 # 🚀 TanStack Hono Start
 
+[![CI](https://github.com/Kroro1208/tanstack-hono-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/Kroro1208/tanstack-hono-starter/actions)
+
+## Try it in 1 minute
+
+```bash
+# Create a new project (one line)
+npx create-tanstack-hono-start@latest my-app && cd my-app && npm install && npm run dev
+
+# Frontend: http://localhost:3000
+# Backend: http://localhost:8000
+```
+
+This will scaffold a working fullstack app you can open immediately. If you prefer a faster demo, check the `demo.gif` at the repo root.
+
 [![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
