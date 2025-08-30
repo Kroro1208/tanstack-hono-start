@@ -44,6 +44,7 @@ yarn create tanstack-hono-start@latest my-awesome-app
 - 🔗 **Hono OpenAPI** - Auto-generated API documentation with Swagger UI
 
 ![OpenAPI Documentation](./openapi.gif)
+
 - 🤖 **Mastra AI** - Built-in AI assistant capabilities
 - 🔒 **End-to-End Type Safety** - Shared Zod schemas between frontend/backend
 - ⚡ **React Query** - Advanced server state management
@@ -80,30 +81,38 @@ yarn create tanstack-hono-start@latest my-awesome-app
 ## 🛠️ Available Templates
 
 ### 🔰 **Basic Template**
+
 ```bash
 npx create-tanstack-hono-start my-app --template basic
 ```
+
 **Perfect for:**
+
 - 🎓 Learning React and fullstack development
 - 🚀 Small to medium projects
 - 📚 Understanding each piece as you add it
 
 **What's included:**
+
 - React 19 + TanStack Router frontend
 - Hono API with OpenAPI/Swagger
 - TypeScript end-to-end
 - **Choose your features:** Vitest, Tailwind, Auth, Database, ESLint, CI/CD, Docker
 
 ### 🚀 **Advanced Template**
+
 ```bash
 npx create-tanstack-hono-start my-app --template advanced
 ```
+
 **Perfect for:**
+
 - 💼 Production-ready applications
 - ⚡ Experienced developers who want everything
 - 🎯 Getting started immediately without setup
 
 **What's included (ALL features):**
+
 - ✅ React 19 + TanStack Router + Auth
 - ✅ Hono API + Database (PostgreSQL + Drizzle ORM)
 - ✅ User authentication system (register/login)
@@ -148,6 +157,7 @@ my-app/                   # ← Your new project
 ### 🎯 Step-by-Step Experience
 
 #### **Basic Template Flow:**
+
 ```bash
 $ npx create-tanstack-hono-start my-app
 ? Which template would you like to use? basic
@@ -162,6 +172,7 @@ $ npx create-tanstack-hono-start my-app
 ```
 
 #### **Advanced Template Flow:**
+
 ```bash
 $ npx create-tanstack-hono-start my-app
 ? Which template would you like to use? advanced
@@ -222,7 +233,7 @@ We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md)
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/tanstack-hono-starter.git
+git clone https://github.com/Kroro1208/tanstack-hono-starter.git
 
 # Install dependencies
 cd tanstack-hono-starter
@@ -242,9 +253,9 @@ If this project helped you, please consider giving it a ⭐ on GitHub!
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/kuroro1208/tanstack-hono-starter)
+- [GitHub Repository](https://github.com/Kroro1208/tanstack-hono-starter)
 - [npm Package](https://www.npmjs.com/package/create-tanstack-hono-start)
-- [Issues & Bug Reports](https://github.com/kuroro1208/tanstack-hono-starter/issues)
+- [Issues & Bug Reports](https://github.com/Kroro1208/tanstack-hono-starter/issues)
 
 ---
 

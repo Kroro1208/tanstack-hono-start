@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "A modern fullstack CLI tool to quickly bootstrap applications with TanStack Router and Hono",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kroro1208/tanstack-hono-starter.git"
+  },
+  "homepage": "https://github.com/Kroro1208/tanstack-hono-starter#readme",
+  "bugs": {
+    "url": "https://github.com/Kroro1208/tanstack-hono-starter/issues"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -20,7 +28,7 @@
     "fullstack",
     "template"
   ],
-  "author": "Your Name",
+  "author": "Kroro1208",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.0.0",
