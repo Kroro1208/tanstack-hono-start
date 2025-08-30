@@ -16,7 +16,15 @@ This will scaffold a working fullstack app you can open immediately. If you pref
 
 ## Contribute
 
-Want to help? Check `GOOD_FIRST_ISSUES.md` for bite-sized tasks and see `CONTRIBUTING.md` for the contribution guide. Your PRs are welcome!
+[![Good First Issues](https://img.shields.io/badge/Contribute-Good%20First%20Issues-brightgreen?style=for-the-badge)](./GOOD_FIRST_ISSUES.md) [![Contributing Guide](https://img.shields.io/badge/Read-Contributing%20Guide-blue?style=for-the-badge)](./CONTRIBUTING.md) [![Open Issues](https://img.shields.io/github/issues/Kroro1208/tanstack-hono-starter?style=for-the-badge)](https://github.com/Kroro1208/tanstack-hono-starter/issues)
+
+Get started with a tiny contribution in 3 steps:
+
+1. Pick a task from `GOOD_FIRST_ISSUES.md` or open an issue describing your idea.
+2. Fork, create a branch `fix/your-issue`, implement and run `npm run test`.
+3. Open a PR, reference the issue, and add the `good first issue` label if applicable.
+
+We welcome all improvements — documentation, tests, or small bug fixes are perfect first PRs.
 
 [![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)

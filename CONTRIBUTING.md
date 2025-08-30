@@ -24,7 +24,7 @@ First off, thank you for considering contributing to TanStack Hono Starter! It's
 1. **Fork & Clone**
 
    ```bash
-   git clone https://github.com/Kroro1208/tanstack-hono-start.git
+   git clone https://github.com/Kroro1208/tanstack-hono-starter.git
    cd tanstack-hono-starter
    ```
 
