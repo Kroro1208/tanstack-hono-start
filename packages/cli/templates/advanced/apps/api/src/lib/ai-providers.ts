@@ -207,7 +207,7 @@ export class AIProviderManager {
     }
 
     if (!provider.isConfigured()) {
-      throw new Error(`${provider.getProviderName()} API key not configured`);
+      throw new Error(`${provider.getProviderName()} API key not configured. Please set the appropriate environment variable.`);
     }
 
     return provider;

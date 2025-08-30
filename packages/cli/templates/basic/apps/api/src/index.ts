@@ -9,10 +9,10 @@ import 'dotenv/config';
 
 const app = new OpenAPIHono();
 
-// Initialize OpenAI client
-const openai = new OpenAI({
+// Initialize OpenAI client (optional - only if API key is provided)
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-});
+}) : null;
 
 // Define schemas for type safety
 const UserSchema = z.object({
@@ -128,6 +128,14 @@ const aiChatRoute = createRoute({
 
 app.openapi(aiChatRoute, async (c) => {
   const { message, context } = c.req.valid('json');
+  
+  // Check if OpenAI is available
+  if (!openai) {
+    return c.json({
+      response: `Hello! I'm an AI assistant, but I need an OpenAI API key to respond properly. For now, I can echo your message: "${message}"`,
+      timestamp: new Date().toISOString(),
+    });
+  }
   
   try {
     // Use OpenAI API to generate response
