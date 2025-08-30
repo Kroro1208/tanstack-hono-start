@@ -14,6 +14,10 @@ npx create-tanstack-hono-start@latest my-app && cd my-app && npm install && npm 
 
 This will scaffold a working fullstack app you can open immediately. If you prefer a faster demo, check the `demo.gif` at the repo root.
 
+## Contribute
+
+Want to help? Check `GOOD_FIRST_ISSUES.md` for bite-sized tasks and see `CONTRIBUTING.md` for the contribution guide. Your PRs are welcome!
+
 [![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![Dependabot Status](https://img.shields.io/github/dependabot/Kroro1208/tanstack-hono-starter?label=dependabot&logo=dependabot&style=for-the-badge)](https://github.com/Kroro1208/tanstack-hono-starter/security/dependabot)
