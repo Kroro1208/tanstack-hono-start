@@ -268,7 +268,19 @@ This project aims to:
 - **Issues**: Bug reports and feature requests
 - **Discord**: Real-time chat with the community
 
-## 📜 Code of Conduct
+## � Quick start for first-time contributors
+
+If you'd like to make your first contribution, follow these simple steps:
+
+1. Fork the repo and clone it locally.
+2. Create a branch: `git checkout -b fix/your-issue-name`.
+3. Make a small change (typo fix, doc improvement, or a small bugfix).
+4. Run `npm install` then `npm run test` to ensure nothing breaks.
+5. Push your branch and open a PR referencing the issue or write `Closes #<issue-number>`.
+
+See `GOOD_FIRST_ISSUES.md` for curated starter tasks.
+
+## �📜 Code of Conduct
 
 This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it before participating.
 
