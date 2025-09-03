@@ -11,11 +11,11 @@ import { getTemplates } from "./lib/templates";
 const program = new Command();
 
 program
-  .name("create-modern-fullstack")
+  .name("create-tanstack-hono-start")
   .description(
     "🚀 A modern fullstack CLI tool to quickly bootstrap applications with TanStack Router and Hono"
   )
-  .version("0.1.0");
+  .version("1.2.2");
 
 program
   .argument("[project-name]", "project name")

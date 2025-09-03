@@ -63,17 +63,23 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "echo \"Test coming soon\""
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "commander": "^11.0.0",
-    "inquirer": "^9.0.0",
+    "commander": "^14.0.0",
+    "inquirer": "^12.9.4",
     "fs-extra": "^11.0.0",
     "handlebars": "^4.7.0"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.0",
     "@types/fs-extra": "^11.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.0.0"
   }
 }

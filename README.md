@@ -14,8 +14,22 @@ npx create-tanstack-hono-start@latest my-app && cd my-app && npm install && npm 
 
 This will scaffold a working fullstack app you can open immediately. If you prefer a faster demo, check the `demo.gif` at the repo root.
 
+## Contribute
+
+[![Good First Issues](https://img.shields.io/badge/Contribute-Good%20First%20Issues-brightgreen?style=for-the-badge)](./GOOD_FIRST_ISSUES.md) [![Contributing Guide](https://img.shields.io/badge/Read-Contributing%20Guide-blue?style=for-the-badge)](./CONTRIBUTING.md) [![Open Issues](https://img.shields.io/github/issues/Kroro1208/tanstack-hono-starter?style=for-the-badge)](https://github.com/Kroro1208/tanstack-hono-starter/issues)
+
+Get started with a tiny contribution in 3 steps:
+
+1. Pick a task from `GOOD_FIRST_ISSUES.md` or open an issue describing your idea.
+2. Fork, create a branch `fix/your-issue`, implement and run `npm run test`.
+3. Open a PR, reference the issue, and add the `good first issue` label if applicable.
+
+We welcome all improvements — documentation, tests, or small bug fixes are perfect first PRs.
+
 [![npm version](https://badge.fury.io/js/create-tanstack-hono-start.svg)](https://www.npmjs.com/package/create-tanstack-hono-start)
 [![Downloads](https://img.shields.io/npm/dm/create-tanstack-hono-start)](https://www.npmjs.com/package/create-tanstack-hono-start)
+[![Dependabot Status](https://img.shields.io/github/dependabot/Kroro1208/tanstack-hono-starter?label=dependabot&logo=dependabot&style=for-the-badge)](https://github.com/Kroro1208/tanstack-hono-starter/security/dependabot)
+[![Good First Issues](https://img.shields.io/badge/good%20first%20issue-welcome-brightgreen?style=for-the-badge)](https://github.com/Kroro1208/tanstack-hono-starter/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Hono](https://img.shields.io/badge/Hono-FF6B35?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)

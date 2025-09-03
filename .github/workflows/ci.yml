@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [18.x, 20.x]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -22,6 +22,8 @@ jobs:
       - name: Install root deps
         run: npm install
       - name: Build workspace
-        run: npm run build || echo "no build script in workspace"
+        run: npm run build
       - name: Run tests
-        run: npm test || echo "no tests configured"
+        run: npm test
+      - name: Run coverage
+        run: npm run test:coverage --if-present
