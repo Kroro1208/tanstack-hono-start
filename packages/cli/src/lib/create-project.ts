@@ -107,7 +107,7 @@ export async function createProject(projectName?: string, options: ProjectOption
   await new Promise((resolve, reject) => {
     const install = spawn("npm", ["install"], {
       cwd: projectPath,
-      stdio: "inherit",
+      stdio: process.stdin.isTTY ? "inherit" : ["ignore", "ignore", "ignore"],
     });
 
     install.on("close", (code) => {
