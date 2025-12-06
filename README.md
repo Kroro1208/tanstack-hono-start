@@ -37,6 +37,25 @@ We welcome all improvements — documentation, tests, or small bug fixes are per
 
 > ⚡ The fastest way to bootstrap modern fullstack applications with React 19, TanStack Router, Hono OpenAPI, and Mastra AI
 
+## 🔒 Security Notice
+
+**Important:** This project uses React 19, which has been updated to address **CVE-2025-55182** (React Server Components vulnerability). All templates now use React **^19.2.1** which includes the security fix.
+
+If you're using Next.js in your project, be aware of **CVE-2025-66478**. Please ensure you're using a patched version:
+
+- Next.js 15.x: Update to 15.0.5, 15.1.9, 15.2.6, 15.3.6, 15.4.8, or 15.5.7
+- Next.js 16.x: Update to 16.0.7 or later
+
+To update your dependencies:
+
+```bash
+# Update React (for projects created with older templates)
+npm install react@^19.2.1 react-dom@^19.2.1
+
+# If using Next.js, update to a patched version
+npm install next@^16.0.7  # or appropriate 15.x version
+```
+
 ## 🎬 Quick Demo
 
 ![CLI Demo](https://raw.githubusercontent.com/Kroro1208/tanstack-hono-starter/main/demo.gif)
