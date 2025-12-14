@@ -107,12 +107,23 @@ export async function createProject(projectName?: string, options: ProjectOption
   await new Promise((resolve, reject) => {
     const install = spawn("npm", ["install"], {
       cwd: projectPath,
-      stdio: process.stdin.isTTY ? "inherit" : ["ignore", "ignore", "ignore"],
+      stdio: process.stdin.isTTY ? "inherit" : ["ignore", "ignore", "pipe"],
     });
+
+    let stderr = '';
+
+    if (!process.stdin.isTTY) {
+      install.stderr?.on('data', (data) => {
+        stderr += data.toString();
+      });
+    }
 
     install.on("close", (code) => {
       if (code === 0) resolve(undefined);
-      else reject(new Error(`npm install failed with code ${code}`));
+      else {
+        const errorMsg = stderr || `npm install failed with code ${code}`;
+        reject(new Error(errorMsg));
+      }
     });
   });
 }
