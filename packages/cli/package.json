@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "commander": "^14.0.2",
-    "inquirer": "^12.11.0",
+    "inquirer": "^13.2.0",
     "fs-extra": "^11.3.3",
     "handlebars": "^4.7.0"
   },
