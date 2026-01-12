@@ -1,8 +1,8 @@
-import inquirer from "inquirer";
 import fs from "fs-extra";
 import path from "path";
 import Handlebars from "handlebars";
-import { getTemplateData, getTemplates, getTemplatePath } from "./templates";
+import { loadInquirer } from "./inquirer.js";
+import { getTemplateData, getTemplates, getTemplatePath } from "./templates.js";
 
 export interface ProjectOptions {
   template?: string;
@@ -15,6 +15,7 @@ export async function createProject(projectName?: string, options: ProjectOption
   let selectedTemplate = options.template || "basic";
 
   if (!options.yes) {
+    const inquirer = await loadInquirer();
     if (!finalProjectName) {
       const namePrompt = await inquirer.prompt([
         {
@@ -37,7 +38,7 @@ export async function createProject(projectName?: string, options: ProjectOption
     const templates = getTemplates();
     const templatePrompt = await inquirer.prompt([
       {
-        type: "list",
+        type: "select",
         name: "template",
         message: "Which template would you like to use?",
         choices: templates.map((t) => ({
@@ -100,6 +101,10 @@ export async function createProject(projectName?: string, options: ProjectOption
     features: featuresObj,
     author: "Your Name",
   });
+
+  if (process.env.SKIP_INSTALL === "1") {
+    return;
+  }
 
   console.log(`\n📦 Installing dependencies...`);
   

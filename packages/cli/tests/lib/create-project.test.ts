@@ -1,15 +1,16 @@
-import { createProject } from '../../src/lib/create-project';
-import { createTempDir, cleanupTempDir } from '../setup';
+import { createTempDir, cleanupTempDir } from '../setup.js';
 import fs from 'fs-extra';
-import path from 'path';
-import inquirer from 'inquirer';
+import { jest } from '@jest/globals';
 
-// Mock inquirer to avoid interactive prompts during tests
-jest.mock('inquirer');
-const mockedInquirer = inquirer as jest.Mocked<typeof inquirer>;
+const mockedPrompt = jest.fn();
+
+// Mock inquirer loader to avoid interactive prompts during tests
+jest.unstable_mockModule('../../src/lib/inquirer.js', () => ({
+  loadInquirer: jest.fn()
+}));
 
 // Mock child_process to avoid actual npm install
-jest.mock('child_process', () => ({
+jest.unstable_mockModule('child_process', () => ({
   spawn: jest.fn().mockImplementation(() => ({
     on: jest.fn((event, callback) => {
       if (event === 'close') {
@@ -20,12 +21,17 @@ jest.mock('child_process', () => ({
   }))
 }));
 
+const { loadInquirer } = await import('../../src/lib/inquirer.js');
+const { createProject } = await import('../../src/lib/create-project.js');
+const mockedLoadInquirer = loadInquirer as jest.MockedFunction<typeof loadInquirer>;
+
 describe('createProject', () => {
   let tempDir: string;
 
   beforeEach(async () => {
     tempDir = await createTempDir();
     process.chdir(tempDir);
+    mockedLoadInquirer.mockResolvedValue({ prompt: mockedPrompt } as any);
   });
 
   afterEach(async () => {
@@ -34,11 +40,6 @@ describe('createProject', () => {
 
   describe('project name validation', () => {
     it('should create project with valid name', async () => {
-      mockedInquirer.prompt.mockResolvedValue({
-        template: 'basic',
-        features: ['router', 'api']
-      });
-
       // Mock template copying - Mock directory doesn't exist first
       jest.spyOn(fs, 'pathExists').mockImplementation(async (path) => {
         if (typeof path === 'string' && path.includes('valid-project-name')) {
@@ -55,7 +56,7 @@ describe('createProject', () => {
     });
 
     it('should handle project names with special characters', async () => {
-      mockedInquirer.prompt.mockResolvedValue({
+      mockedPrompt.mockResolvedValue({
         projectName: 'my_awesome-project123',
         template: 'basic'
       });
@@ -116,7 +117,7 @@ describe('createProject', () => {
 
   describe('interactive mode', () => {
     it('should prompt for project name when not provided', async () => {
-      mockedInquirer.prompt
+      mockedPrompt
         .mockResolvedValueOnce({ projectName: 'prompted-project' })
         .mockResolvedValueOnce({ template: 'basic' })
         .mockResolvedValueOnce({ features: ['router'] });
@@ -133,7 +134,7 @@ describe('createProject', () => {
 
       await createProject(undefined, { yes: false });
 
-      expect(mockedInquirer.prompt).toHaveBeenCalledWith(
+      expect(mockedPrompt).toHaveBeenCalledWith(
         expect.arrayContaining([
           expect.objectContaining({
             type: 'input',
@@ -145,7 +146,7 @@ describe('createProject', () => {
     });
 
     it('should prompt for template selection', async () => {
-      mockedInquirer.prompt
+      mockedPrompt
         .mockResolvedValueOnce({ template: 'advanced' })
         .mockResolvedValueOnce({ features: ['router', 'api'] });
 
@@ -161,7 +162,7 @@ describe('createProject', () => {
 
       await createProject('test-project-3', { yes: false });
 
-      expect(mockedInquirer.prompt).toHaveBeenCalled();
+      expect(mockedPrompt).toHaveBeenCalled();
     });
   });
 

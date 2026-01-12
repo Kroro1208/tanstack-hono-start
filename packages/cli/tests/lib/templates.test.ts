@@ -1,6 +1,7 @@
-import { getTemplates, getTemplateData, validateTemplate, getTemplatePath } from '../../src/lib/templates';
+import { getTemplates, getTemplateData, validateTemplate, getTemplatePath } from '../../src/lib/templates.js';
 import fs from 'fs-extra';
 import path from 'path';
+import { jest } from '@jest/globals';
 
 describe('Templates', () => {
   describe('getTemplates', () => {

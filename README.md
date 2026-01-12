@@ -265,7 +265,7 @@ npx create-tanstack-hono-start list
 
 - **Hono** - Web framework
 - **TypeScript** - Type safety
-- **Node.js** - Runtime
+- **Node.js (>=20.12)** - Runtime
 
 ## 📖 Documentation
 

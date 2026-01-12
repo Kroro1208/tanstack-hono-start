@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import inquirer from "inquirer";
 import fs from "fs-extra";
 import path from "path";
 import Handlebars from "handlebars";
-import { createProject } from "./lib/create-project";
-import { getTemplates } from "./lib/templates";
+import { createProject } from "./lib/create-project.js";
+import { getTemplates } from "./lib/templates.js";
 
 const program = new Command();
 

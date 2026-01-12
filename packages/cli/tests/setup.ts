@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import os from 'os';
+import { jest } from '@jest/globals';
 
 // Global test configuration
 export const TEST_TIMEOUT = 30000;

@@ -1,11 +1,13 @@
 import { execSync, spawn } from 'child_process';
 import fs from 'fs-extra';
 import path from 'path';
-import { createTempDir, cleanupTempDir } from '../setup';
+import { createTempDir, cleanupTempDir } from '../setup.js';
+import { fileURLToPath } from 'url';
 
 describe('CLI Integration Tests', () => {
   let tempDir: string;
   let cliPath: string;
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
   beforeAll(async () => {
     // Build the CLI first
@@ -33,7 +35,8 @@ describe('CLI Integration Tests', () => {
     it('should show help when --help is used', (done) => {
       const child = spawn('node', [cliPath, '--help'], {
         cwd: tempDir,
-        stdio: 'pipe'
+        stdio: 'pipe',
+        env: { ...process.env, SKIP_INSTALL: '1' }
       });
 
       let output = '';
@@ -52,7 +55,8 @@ describe('CLI Integration Tests', () => {
     it('should show version when --version is used', (done) => {
       const child = spawn('node', [cliPath, '--version'], {
         cwd: tempDir,
-        stdio: 'pipe'
+        stdio: 'pipe',
+        env: { ...process.env, SKIP_INSTALL: '1' }
       });
 
       let output = '';
@@ -72,7 +76,8 @@ describe('CLI Integration Tests', () => {
     it('should list available templates', (done) => {
       const child = spawn('node', [cliPath, 'list'], {
         cwd: tempDir,
-        stdio: 'pipe'
+        stdio: 'pipe',
+        env: { ...process.env, SKIP_INSTALL: '1' }
       });
 
       let output = '';
@@ -101,7 +106,8 @@ describe('CLI Integration Tests', () => {
         '--yes'
       ], {
         cwd: tempDir,
-        stdio: 'pipe'
+        stdio: 'pipe',
+        env: { ...process.env, SKIP_INSTALL: '1' }
       });
 
       let output = '';
@@ -142,12 +148,13 @@ describe('CLI Integration Tests', () => {
     it('should handle invalid template gracefully', (done) => {
       const child = spawn('node', [
         cliPath, 
-        'test-project', 
+        'test-project',
         '--template', 'invalid-template',
         '--yes'
       ], {
         cwd: tempDir,
-        stdio: 'pipe'
+        stdio: 'pipe',
+        env: { ...process.env, SKIP_INSTALL: '1' }
       });
 
       let errorOutput = '';

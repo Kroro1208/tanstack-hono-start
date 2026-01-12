@@ -2,6 +2,7 @@
   "name": "create-tanstack-hono-start",
   "version": "1.2.4",
   "description": "🚀 Fast CLI to create modern React 19 apps with TanStack Router, Hono API, TypeScript, and AI. Alternative to create-react-app with full-stack features.",
+  "type": "module",
   "main": "dist/index.js",
   "bin": {
     "create-tanstack-hono-start": "./dist/index.js"
@@ -58,18 +59,18 @@
     "templates"
   ],
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.12.0"
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --coverage"
   },
   "dependencies": {
     "commander": "^14.0.2",
-    "inquirer": "^12.11.0",
+    "inquirer": "^13.0.0",
     "fs-extra": "^11.3.3",
     "handlebars": "^4.7.0"
   },
