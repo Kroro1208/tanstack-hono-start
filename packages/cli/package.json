@@ -1,6 +1,6 @@
 {
   "name": "create-tanstack-hono-start",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "description": "🚀 Fast CLI to create modern React 19 apps with TanStack Router, Hono API, TypeScript, and AI. Alternative to create-react-app with full-stack features.",
   "type": "module",
   "main": "dist/index.js",
