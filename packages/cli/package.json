@@ -72,7 +72,7 @@
     "commander": "^14.0.2",
     "inquirer": "^13.0.0",
     "fs-extra": "^11.3.3",
-    "handlebars": "^4.7.0"
+    "handlebars": "^4.7.9"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.0",
